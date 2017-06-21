@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.example.administrator.book">
+
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme">
+        <activity android:name="com.AndroidUI.LoginActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity android:name="com.AndroidUI.RegisterActivity" />
+        <activity android:name="com.AndroidUI.student.StudentManage" />
+        <activity android:name="com.AndroidUI.student.StudentInsert" />
+        <activity android:name="com.AndroidUI.student.StudentUpdate" />
+        <activity android:name="com.AndroidUI.student.StudentShow" />
+        <activity android:name="com.AndroidUI.book.BookInsert" />
+        <activity android:name="com.AndroidUI.book.BookMessageManage" />
+        <activity android:name="com.AndroidUI.book.BookInsertSome" />
+        <activity android:name="com.AndroidUI.book.BookShow" />
+        <activity android:name="com.AndroidUI.book.BookSelect" />
+        <activity android:name="com.AndroidUI.book.BookSelectNo" />
+        <activity android:name="com.AndroidUI.book.BookSelectName" />
+        <activity android:name="com.AndroidUI.book.BookSelectAuthor" />
+        <activity android:name="com.AndroidUI.book.BookSelectPublisher" />
+        <activity android:name="com.AndroidUI.book.BookSelectPubday" />
+        <activity android:name="com.AndroidUI.book.BookUpdate" />
+        <activity android:name="com.AndroidUI.book.BookDeleteOne" />
+        <activity android:name="com.AndroidUI.borrow.BorrowManage" />
+        <activity android:name="com.AndroidUI.borrow.BorrowBook" />
+        <activity android:name="com.AndroidUI.borrow.BorrowReturn" />
+        <activity android:name="com.AndroidUI.borrow.BorrowShow" />
+        <activity android:name="com.AndroidUI.borrow.BorrowOverDateSelect" />
+        <activity android:name="com.AndroidUI.admin.AdminManage" />
+        <activity android:name="com.AndroidUI.admin.AdminInsert" />
+        <activity android:name="com.AndroidUI.admin.AdminUpdate" />
+        <activity android:name="com.AndroidUI.admin.AdminShow" />
+        <activity android:name="com.AndroidUI.borrow.ChangePassword"></activity>
+    </application>
+
+</manifest>
