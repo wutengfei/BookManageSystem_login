@@ -53,7 +53,7 @@ public class BorrowReturn extends AppCompatActivity {
                     //还可以再借的数量。
                     int i = 5 - borrow.length + 1;//每位同学可以借五本书，由于在归还之前就查询该学生借了几本，所以还书之后应再加1.
                     Toast.makeText(BorrowReturn.this, "您已归还编号" + book[0].getBookno() +
-                            "《" + book[0].getBookname() + "》此书" + "您还可以借" + i + "本书", Toast.LENGTH_LONG).show();
+                            "《" + book[0].getBookname() + "》此书" + "您还可以借" + i + "本书", Toast.LENGTH_SHORT).show();
                 }
             } else
                 Toast.makeText(BorrowReturn.this, "还书失败，请检查学号或图书编号是否正确或者您还没有借此书", Toast.LENGTH_SHORT).show();
