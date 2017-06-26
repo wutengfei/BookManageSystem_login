@@ -19,7 +19,7 @@ import com.control.StudentControl;
 import com.example.administrator.book.R;
 import com.model.Book;
 import com.model.Borrow;
-import com.model.Students;
+import com.model.Student;
 
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -37,7 +37,7 @@ public class BorrowBook extends AppCompatActivity {
     StudentControl studentControl;
     Book book[];
     Borrow borrows[];
-    Students student[];
+    Student student[];
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

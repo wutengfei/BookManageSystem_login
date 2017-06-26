@@ -1,67 +1,67 @@
 package com.model;
 
 /**
- * Created by lsy on 2016/7/14.
+ * Created by dell on 2017/6/9.
  */
-public class Student {
-    //属性
-    private String studentNo; //学号
-    private String studentName;
-    private String studentMajor;
-    private String studentClass;
-    private String studentMobile;
-    //构造方法
-    public Student(String studentNo, String studentName, String studentMajor, String studentClass, String studentMobile) {
-        super();
-        this.studentNo = studentNo;
-        this.studentName = studentName;
-        this.studentMajor = studentMajor;
-        this.studentClass = studentClass;
-        this.studentMobile = studentMobile;
-    }
-    public Student(){};
-    //getter and setter
-    public String getStudentNo() {
-        return studentNo;
+
+public class Student extends User {
+    private String Major;        //专业
+    private String Grade;        //年级
+    private String ClassNo;        //班级编号
+    private int Graduated;        //判断学生是否毕业
+
+
+
+    public String getMajor() {
+        return Major;
     }
 
-    public void setStudentNo(String studentNo) {
-        this.studentNo = studentNo;
+    public void setMajor(String major) {
+        Major = major;
     }
 
-    public String getStudentName() {
-        return studentName;
+    public String getGrade() {
+        return Grade;
     }
 
-    public void setStudentName(String studentName) {
-        this.studentName = studentName;
+    public void setGrade(String grade) {
+        Grade = grade;
     }
 
-    public String getStudentMajor() {
-        return studentMajor;
+    public String getClassNo() {
+        return ClassNo;
     }
 
-    public void setStudentMajor(String studentMajor) {
-        this.studentMajor = studentMajor;
+    public void setClassNo(String classNo) {
+        ClassNo = classNo;
     }
 
-    public String getStudentClass() {
-        return studentClass;
+    public int getGraduated() {
+        return Graduated;
     }
 
-    public void setStudentClass(String studentClass) {
-        this.studentClass = studentClass;
+    public void setGraduated(int graduated) {
+        Graduated = graduated;
     }
 
-    public String getStudentMobile() {
-        return studentMobile;
+    public Student() {
     }
 
-    public void setStudentMobile(String studentMobile) {
-        this.studentMobile = studentMobile;
+    public Student(String username, String password, int authorization, String name,
+                   int age, String phone, String major, String grade, String classNo, int graduated) {
+        super(username, password, authorization, name, age, phone);
+        Major = major;
+        Grade = grade;
+        ClassNo = classNo;
+        Graduated = graduated;
     }
 
-
-
-
+    public Student(int id, String username, String password, int authorization, String name, int age, String phone,
+                   String major, String grade, String classNo, int graduated) {
+        super(id, username, password, authorization, name, age, phone);
+        Major = major;
+        Grade = grade;
+        ClassNo = classNo;
+        Graduated = graduated;
+    }
 }

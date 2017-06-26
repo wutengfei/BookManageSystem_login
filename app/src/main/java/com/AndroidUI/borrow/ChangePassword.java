@@ -7,12 +7,10 @@ import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
 
-import com.control.AdminControl;
 import com.control.StudentControl;
 import com.control.UserControl;
 import com.example.administrator.book.R;
-import com.model.Admin;
-import com.model.Students;
+import com.model.Student;
 import com.model.User;
 
 public class ChangePassword extends AppCompatActivity {
@@ -45,7 +43,7 @@ public class ChangePassword extends AppCompatActivity {
             userControl.updateUser(user[0]);
             //更新admin中的信息
             StudentControl studentControl = new StudentControl(this);
-            Students[] student = studentControl.QueryOnByNo(username);
+            Student[] student = studentControl.QueryOnByNo(username);
             student[0].setPassword(password1);
             studentControl.updateStudent(student[0]);
             Toast.makeText(this, "修改成功", Toast.LENGTH_SHORT).show();

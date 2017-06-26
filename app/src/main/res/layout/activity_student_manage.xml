@@ -67,6 +67,15 @@
         android:text="清除全部信息"
         android:textColor="#00ff00"
         android:textSize="25sp" />
-
+    <Button
+        android:id="@+id/insertAll"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:background="@color/colorPrimary"
+        android:onClick="onClick"
+        android:text="保存初始学生信息"
+        android:textColor="#00ff00"
+        android:textSize="25sp" />
 
 </LinearLayout>

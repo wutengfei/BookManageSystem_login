@@ -1,8 +1,6 @@
 package com.control;
 
-import com.model.DBAdapter;
 import com.model.Student;
-import com.model.StudentSet;
 
 /**
  * Created by Administrator on 2016/7/17.

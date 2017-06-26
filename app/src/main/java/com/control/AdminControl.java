@@ -4,8 +4,6 @@ import android.content.Context;
 
 import com.model.Admin;
 import com.model.DBAdapter;
-import com.model.Student;
-import com.model.User;
 
 /**
  * Created by dell on 2017/6/15.

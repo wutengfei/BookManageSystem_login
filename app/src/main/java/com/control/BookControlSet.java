@@ -4,8 +4,6 @@ import android.content.Context;
 
 import com.model.Book;
 import com.model.BookSet;
-import com.model.DBAdapter;
-import com.model.Student;
 
 import java.util.ArrayList;
 
@@ -13,7 +11,6 @@ import java.util.ArrayList;
  * Created by Administrator on 2016/7/18.
  */
 public class BookControlSet  implements BookControlInterface{
-    private static DBAdapter stuDB;
     private static BookSet set;
     Context context;
 

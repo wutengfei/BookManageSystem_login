@@ -300,18 +300,18 @@ public class DBAdapter {
     }
 
     /////////////////////////////////////学生
-    public long insert(Students students) {
+    public long insert(Student student) {
         ContentValues newValues = new ContentValues();
-        newValues.put(KEY_USER_USERNAME, students.getUsername());
-        newValues.put(KEY_USER_PASSWORD, students.getPassword());
-        newValues.put(KEY_USER_NAME, students.getName());
-        newValues.put(KEY_USER_AGE, students.getAge());
-        newValues.put(KEY_USER_PHONE, students.getPhone());
-        newValues.put(KEY_USER_AUTHORIZATION, students.getAuthorization());
-        newValues.put(KEY_MAJOR, students.getMajor());
-        newValues.put(KEY_GRADE, students.getGrade());
-        newValues.put(KEY_CLASSNO, students.getClassNo());
-        newValues.put(KEY_GRADUATED, students.getGraduated());
+        newValues.put(KEY_USER_USERNAME, student.getUsername());
+        newValues.put(KEY_USER_PASSWORD, student.getPassword());
+        newValues.put(KEY_USER_NAME, student.getName());
+        newValues.put(KEY_USER_AGE, student.getAge());
+        newValues.put(KEY_USER_PHONE, student.getPhone());
+        newValues.put(KEY_USER_AUTHORIZATION, student.getAuthorization());
+        newValues.put(KEY_MAJOR, student.getMajor());
+        newValues.put(KEY_GRADE, student.getGrade());
+        newValues.put(KEY_CLASSNO, student.getClassNo());
+        newValues.put(KEY_GRADUATED, student.getGraduated());
         return db.insert(DB_TABLE_STUDENT, null, newValues);
     }
 
@@ -323,22 +323,22 @@ public class DBAdapter {
         return db.delete(DB_TABLE_STUDENT, KEY_USER_USERNAME + " like ? ", new String[]{no});
     }
 
-    public long updateOneDataByNo(String username, Students students) {
+    public long updateOneDataByNo(String username, Student student) {
         ContentValues newValues = new ContentValues();
-        newValues.put(KEY_USER_USERNAME, students.getUsername());
-        newValues.put(KEY_USER_PASSWORD, students.getPassword());
-        newValues.put(KEY_USER_NAME, students.getName());
-        newValues.put(KEY_USER_AGE, students.getAge());
-        newValues.put(KEY_USER_PHONE, students.getPhone());
-        newValues.put(KEY_USER_AUTHORIZATION, students.getAuthorization());
-        newValues.put(KEY_MAJOR, students.getMajor());
-        newValues.put(KEY_GRADE, students.getGrade());
-        newValues.put(KEY_CLASSNO, students.getClassNo());
-        newValues.put(KEY_GRADUATED, students.getGraduated());
+        newValues.put(KEY_USER_USERNAME, student.getUsername());
+        newValues.put(KEY_USER_PASSWORD, student.getPassword());
+        newValues.put(KEY_USER_NAME, student.getName());
+        newValues.put(KEY_USER_AGE, student.getAge());
+        newValues.put(KEY_USER_PHONE, student.getPhone());
+        newValues.put(KEY_USER_AUTHORIZATION, student.getAuthorization());
+        newValues.put(KEY_MAJOR, student.getMajor());
+        newValues.put(KEY_GRADE, student.getGrade());
+        newValues.put(KEY_CLASSNO, student.getClassNo());
+        newValues.put(KEY_GRADUATED, student.getGraduated());
         return db.update(DB_TABLE_STUDENT, newValues, KEY_USER_USERNAME + " like ? ", new String[]{username});
     }
 
-    public Students[] getOneByNo(String username) {
+    public Student[] getOneByNo(String username) {
         Cursor cursor = db.query(DB_TABLE_STUDENT, new String[]{KEY_USER_USERNAME, KEY_USER_PASSWORD, KEY_USER_NAME,
                         KEY_USER_AGE, KEY_USER_PHONE, KEY_USER_AUTHORIZATION, KEY_MAJOR, KEY_GRADE, KEY_CLASSNO, KEY_GRADUATED},
                 KEY_USER_USERNAME + " like ? ", new String[]{username}, null, null, null, null);
@@ -346,19 +346,19 @@ public class DBAdapter {
 
     }
 
-    public Students[] getAllStu() {
+    public Student[] getAllStu() {
         Cursor cursor = db.query(DB_TABLE_STUDENT, new String[]{KEY_USER_USERNAME, KEY_USER_PASSWORD, KEY_USER_NAME,
                         KEY_USER_AGE, KEY_USER_PHONE, KEY_USER_AUTHORIZATION, KEY_MAJOR, KEY_GRADE, KEY_CLASSNO, KEY_GRADUATED},
                 null, null, null, null, KEY_USER_USERNAME + " asc");
         return ConvertToStudent(cursor);
     }
 
-    private Students[] ConvertToStudent(Cursor cursor) {
+    private Student[] ConvertToStudent(Cursor cursor) {
         int resultCounts = cursor.getCount();
         if (resultCounts == 0 || !cursor.moveToFirst()) return null;
-        Students[] peoples = new Students[resultCounts];
+        Student[] peoples = new Student[resultCounts];
         for (int i = 0; i < resultCounts; i++) {
-            peoples[i] = new Students();
+            peoples[i] = new Student();
             peoples[i].setUsername(cursor.getString(cursor.getColumnIndex(KEY_USER_USERNAME)));
             peoples[i].setPassword(cursor.getString(cursor.getColumnIndex(KEY_USER_PASSWORD)));
             peoples[i].setName(cursor.getString(cursor.getColumnIndex(KEY_USER_NAME)));

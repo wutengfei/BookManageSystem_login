@@ -1,21 +1,18 @@
 package com.AndroidUI.student;
 
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.control.AdminControl;
 import com.control.StudentControl;
+import com.control.StudentControlSet;
 import com.control.UserControl;
 import com.example.administrator.book.R;
-import com.model.Admin;
-import com.model.Students;
+import com.model.Student;
 import com.model.User;
 
 public class StudentUpdate extends AppCompatActivity implements View.OnClickListener {
@@ -96,16 +93,20 @@ public class StudentUpdate extends AppCompatActivity implements View.OnClickList
         }
         int authorization = 3;
 
-        Students students = new Students(getUsername, getPassword, authorization, getName, getAge, getPhone,
+        Student student = new Student(getUsername, getPassword, authorization, getName, getAge, getPhone,
                 getMajor,getGrade,getClassNo,getGraduated);
         User user = new User(getUsername, getPassword, authorization, getName, getAge, getPhone);
 
         StudentControl studentControl = new StudentControl(this);
         UserControl userControl = new UserControl(this);
 
-        studentControl.updateStudent(students);
+        studentControl.updateStudent(student);
         userControl.updateUser(user);
 
+//        StudentControlSet studentControlSet=new StudentControlSet(this);
+//        studentControlSet.updataByNo(student);
+
+        Toast.makeText(this, "修改成功", Toast.LENGTH_SHORT).show();
         finish();
     }
 }

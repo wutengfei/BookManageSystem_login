@@ -74,8 +74,8 @@ public class AdminInsert extends AppCompatActivity {
                 phone.equals("") || department.equals("")) {
             new android.app.AlertDialog.Builder(this).setMessage("请填写完整").show();
         } else {
-            if (adminControl.queryByUsername(username) != null) {//检测学生是否已存在
-                Toast.makeText(this, "该管理员已存在", Toast.LENGTH_SHORT).show();
+            if (adminControl.queryByUsername(username) != null||userControl.QueryUserByUsername(username)!=null) {//检测学生是否已存在
+                Toast.makeText(this, "该用户已存在", Toast.LENGTH_SHORT).show();
             } else {
                 if (adminControl.addAdmin(admin)&&userControl.addUser(user)) {
                     Toast.makeText(this, "添加成功", Toast.LENGTH_SHORT).show();

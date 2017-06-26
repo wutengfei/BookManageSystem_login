@@ -8,12 +8,11 @@ import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.SimpleAdapter;
 
-import com.AndroidUI.admin.AdminShow;
-import com.AndroidUI.admin.AdminUpdate;
+import com.control.StudentControlSet;
 import com.example.administrator.book.R;
 import com.control.StudentControl;
 import com.model.StudentSet;
-import com.model.Students;
+import com.model.Student;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -21,7 +20,6 @@ import java.util.List;
 
 public class StudentShow extends AppCompatActivity {
     ListView lv;
-    public StudentSet studentList;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -37,7 +35,10 @@ public class StudentShow extends AppCompatActivity {
          final List<HashMap<String, Object>> data = new ArrayList<HashMap<String, Object>>();
 
          StudentControl studentControl=new StudentControl (this);
-         Students s[]=studentControl.getAllStudent();
+         Student s[]=studentControl.getAllStudent();
+
+//         StudentControlSet studentControlSet=new StudentControlSet(this);
+//         Student s[]= studentControlSet.getAllStudent() ;
 
          if(s!=null)
              for (int i = 0; i < s.length; i++) {

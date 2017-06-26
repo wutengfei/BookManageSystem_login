@@ -9,7 +9,7 @@ import android.widget.Toast;
 import com.control.StudentControl;
 import com.control.UserControl;
 import com.example.administrator.book.R;
-import com.model.Students;
+import com.model.Student;
 import com.model.User;
 
 public class StudentInsert extends AppCompatActivity implements View.OnClickListener {
@@ -67,8 +67,9 @@ public class StudentInsert extends AppCompatActivity implements View.OnClickList
                 e.printStackTrace();
             }
 
-            Students students = new Students(usernameS, passwordS, authorization, nameS, ageS, phoneS, majorS, gradeS, classNoS, graduateS);
+            Student student = new Student(usernameS, passwordS, authorization, nameS, ageS, phoneS, majorS, gradeS, classNoS, graduateS);
             StudentControl studentControl = new StudentControl(StudentInsert.this);
+            // StudentControlSet studentControlSet = new StudentControlSet(StudentInsert.this);
 
             User user = new User(usernameS, passwordS, authorization, nameS, ageS, phoneS);
             UserControl userControl = new UserControl(StudentInsert.this);
@@ -78,12 +79,16 @@ public class StudentInsert extends AppCompatActivity implements View.OnClickList
                     graduate.getText().toString().trim().equals("")) {
                 Toast.makeText(StudentInsert.this, "请填写完整", Toast.LENGTH_SHORT).show();
             } else {
-                if (studentControl.QueryOnByNo(usernameS) != null) {
-                    Toast.makeText(StudentInsert.this, "该学生已经存在", Toast.LENGTH_SHORT).show();
+                if (studentControl.QueryOnByNo(usernameS) != null||userControl.QueryUserByUsername(usernameS)!=null) {
+                    // if (studentControlSet.QueryOnByNo(usernameS) != null) {
+                    Toast.makeText(StudentInsert.this, "该用户已经存在", Toast.LENGTH_SHORT).show();
                 } else {
-                    if (studentControl.addStudent(students) && userControl.addUser(user))
+                    if (studentControl.addStudent(student) && userControl.addUser(user))
+                    //  studentControlSet.addStudent(student);
+                    {
                         Toast.makeText(StudentInsert.this, "插入成功", Toast.LENGTH_SHORT).show();
-                    finish();
+                        finish();
+                    }
                 }
             }
         }

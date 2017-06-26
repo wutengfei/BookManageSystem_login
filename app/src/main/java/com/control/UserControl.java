@@ -3,6 +3,7 @@ package com.control;
 import android.content.Context;
 
 import com.model.DBAdapter;
+import com.model.Student;
 import com.model.User;
 
 
@@ -36,9 +37,17 @@ public class UserControl {
         return false;
     }
 
-    //删除所有用户
-    public void deleteAllUser() {
-        dbAdapter.deleteAllUser();
+    //删除所有学生对应的User
+    public void deleteAllUser(Student[] students) {
+
+        dbAdapter.db.beginTransaction();//开启事务
+
+        for (int i = 0; i < students.length; i++) {
+            dbAdapter.deleteOneUser(students[i].getUsername());
+        }
+
+        dbAdapter.db.setTransactionSuccessful();// 设置事务标志为成功，当结束事务时就会提交事务
+        dbAdapter.db.endTransaction();// 结束事务
     }
 
     //修改
