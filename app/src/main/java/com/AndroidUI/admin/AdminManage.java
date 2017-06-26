@@ -43,7 +43,7 @@ public class AdminManage extends AppCompatActivity {
                 .setView(edit)
                 .setPositiveButton("确定", new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int whichButton) {
-                        String username = edit.getText().toString();
+                        String username = edit.getText().toString().trim();
                         if (adminControl.deleteByUsername(username) && userControl.deleteByUsername(username))
                             Toast.makeText(AdminManage.this, "删除成功", Toast.LENGTH_SHORT).show();
                         else
@@ -63,7 +63,7 @@ public class AdminManage extends AppCompatActivity {
                 .setView(edit)
                 .setPositiveButton("确定", new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int whichButton) {
-                        String username = edit.getText().toString();
+                        String username = edit.getText().toString().trim();
                         Admin admins[] = adminControl.queryByUsername(username);
                         if (admins != null)
                             new AlertDialog.Builder(AdminManage.this)

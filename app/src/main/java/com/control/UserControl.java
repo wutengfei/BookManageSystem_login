@@ -58,7 +58,6 @@ public class UserControl {
         if (users != null) {
             //更新密码
             dbAdapter.updateUser(username, user);
-            dbAdapter.close();
         }
         return true;
     }

@@ -52,7 +52,6 @@ public class AdminControl {
         Admin admins[]= dbAdapter.queryAdmin(username);
         if(admins!=null) {
             dbAdapter.updateByUsername(username,admin);
-            dbAdapter.close();
         }
     }
 }

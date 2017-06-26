@@ -77,9 +77,9 @@ public class AdminUpdate extends AppCompatActivity {
         User user = new User(getUsername, getPassword, authorization, getName, getAge, getPhone);
 
         AdminControl adminControl = new AdminControl(this);
-        UserControl userControl = new UserControl(this);
-
         adminControl.update(admin);
+
+        UserControl userControl = new UserControl(this);
         userControl.updateUser(user);
 
         finish();
